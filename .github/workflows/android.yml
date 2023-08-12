@@ -19,7 +19,7 @@ jobs:
     - name: install unzip
       run: sudo apt install unzip
     - name: unzip
-      run: unzip ./android-ndk-r25c-linux.zip
+      run: unzip android-ndk-r25c-linux.zip
     - name: set path
       run: |
          sudo gedit ~/.bashrc
