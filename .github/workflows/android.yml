@@ -15,8 +15,8 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: download ndk
-      run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip?hl=zh-cn -o ./android-ndk-r25c-linux.zip
-    - name : sudo apt-get install -f jar
+      run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip -o ./android-ndk-r25c-linux.zip
+    - name : install fastjar
       run: sudo apt-get install fastjar
     - name : unzip
       run: jar xvf android-ndk-r25c-linux.zip
