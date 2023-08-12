@@ -21,8 +21,8 @@ jobs:
     - name: set up NDK
       uses: nttld/setup-ndk@v1
       with:
-       ndk-version: r25b
-       runs: ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk NDK_APPLICATION_MK=./Application.mk
+       ndk-version: r20b
+       
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
