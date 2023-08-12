@@ -17,11 +17,11 @@ jobs:
     - name: download ndk
       run: wget -c http://dl.google.com/android/ndk/android-ndk-r20b-linux-x86_64.bin
     - name: set up ndk
-       run: ./android-ndk-r20b-linux-x86_64.bin
+      run: ./android-ndk-r20b-linux-x86_64.bin
     - name: set path
       run: |
          sudo gedit ~/.bashrc
-         export NDK=./android-ndk-r25c
+         export NDK=./android-ndk-r20b
          export PATH=${PATH}:$NDK
         
     
