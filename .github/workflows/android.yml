@@ -17,7 +17,7 @@ jobs:
     - name: download ndk
       run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip?hl=zh-cn -o ./android-ndk-r25c-linux.zip
     - name : sudo apt-get install -f jar
-      run: sudo apt-get install -f jar
+      run: sudo apt-get install fastjar
     - name : unzip
       run: jar xvf android-ndk-r25c-linux.zip
     - name: set path
