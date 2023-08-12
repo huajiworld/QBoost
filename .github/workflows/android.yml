@@ -14,12 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: ndk
-      run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip?hl=zh-cn -o ./android-ndk-r25c-linux.zip
-    - name: install unzip
-      run: sudo apt install unzip
-    - name: unzip
-      run: unzip android-ndk-r25c-linux.zip
+    - name: download ndk
+      run: wget -c http://dl.google.com/android/ndk/android-ndk-r20b-linux-x86_64.bin
+    - name: set up ndk
+       run: ./android-ndk-r20b-linux-x86_64.bin
     - name: set path
       run: |
          sudo gedit ~/.bashrc
