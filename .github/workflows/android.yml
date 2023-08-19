@@ -23,6 +23,7 @@ jobs:
       run: 7z x android-ndk-r25c-linux.zip?hl=zh-cn
     - name: set path
       run: |
+         sudo apt install gedit
          sudo gedit ~/.bashrc
          export NDK=./android-ndk-r25c
          export PATH=${PATH}:$NDK
