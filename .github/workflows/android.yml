@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: download ndk
-      run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip?hl=zh-cn -o ./android-ndk-r25c-linux.zip
+      run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip?hl=zh-cn
     - name : install p7zip
       run: sudo apt-get install p7zip-full
 
