@@ -14,25 +14,27 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: download ndk
-      run: wget -c https://dl.google.com/android/repository/android-ndk-r25c-linux.zip?hl=zh-cn
-    - name : install p7zip
-      run: sudo apt-get install p7zip-full
-
-    - name : unzip
-      run: 7z x android-ndk-r25c-linux.zip?hl=zh-cn
-    - name: set path
+    - name: Prepare NDK dir for caching ( workaround for https://github.com/actions/virtual-environments/issues/1337 )
       run: |
-         sudo snap install gedit
-         sudo gedit ~/.bashrc
-         export NDK=./android-ndk-r25c
-         export PATH=${PATH}:$NDK
-        
+       sudo mkdir -p /usr/local/lib/android/sdk/ndk
+       sudo chmod -R 777 /usr/local/lib/android/sdk/ndk
+       sudo chown -R $USER:$USER /usr/local/lib/android/sdk/ndk
+ 
+    - name: NDK Cache
+      id: ndk-cache
+      uses: actions/cache@v2
+      with:
+           path: /usr/local/lib/android/sdk/ndk
+           key: ndk-cache-21.0.6113669-v2
+    - name: Install NDK
+      if: steps.ndk-cache.outputs.cache-hit != 'true'
+      run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;21.0.6113669"
     
+  
     - name: set up JDK 1.8
       uses: actions/setup-java@v1
       with:
-        java-version: '1.8'
+         java-version: '1.8'
 
 
     - name: Grant execute permission for gradlew
