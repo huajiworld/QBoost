@@ -24,7 +24,7 @@ jobs:
     - name: set path
       run: |
          sudo gedit ~/.bashrc
-         export NDK=./android-ndk-r20b
+         export NDK=./android-ndk-r25c
          export PATH=${PATH}:$NDK
         
     
